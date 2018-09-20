@@ -1,6 +1,8 @@
 #ifndef JOGADOR_H
 #define JOGADOR_H
+
 #include "dado.h"
+#include <string>
 
 class Jogador
 {
@@ -27,7 +29,9 @@ public:
     // Torna "false" o valor de m_isAtivo
     void desativar();
     // Implementa a jogada onde a pontuação do jogador será atualizada
-    void jogar(Dado &d1, Dado &d2, Dado &d3);
+    void jogar(Dado *d1, Dado *d2, Dado *d3);
+    // Faz o printe do estado do Jogador
+    void printStatus();
 };
 
 #endif

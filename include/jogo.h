@@ -11,10 +11,10 @@ private:
     Dado * m_dados[3];
     int m_numJogadores;
     int m_rodada;
-    Jogador * m_vencedor = nullptr;
+    Jogador * m_vencedor;
 public:
     Jogo();
-    void addJogador(Jogador &novoJogador);
+    void addJogador(Jogador * novoJogador);
     int getNumJogadores();
     int getRodada();
     Jogador * getVencedor();
