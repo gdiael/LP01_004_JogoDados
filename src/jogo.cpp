@@ -34,18 +34,19 @@ void Jogo::executarRodada(){
     int i = 0;
     int minJog = 0;
     int numJogadas = 0;
-    while(i++ < m_numJogadores){
+    while(i < m_numJogadores){
         m_jogadores[i]->resetPontuacao();
         if(m_jogadores[i]->getIsAtivo()){
             if(!m_jogadores[minJog]->getIsAtivo()){
                 minJog = i;
             }
             m_jogadores[i]->jogar(m_dados[0], m_dados[1], m_dados[2]);
+            numJogadas++;
             if(m_jogadores[i]->getPontuacao() < m_jogadores[minJog]->getPontuacao()){
                 minJog = i;
-                numJogadas++;
             };
         };
+        i++;
     };
     if(numJogadas == 1){
         m_vencedor = m_jogadores[minJog];
@@ -61,7 +62,7 @@ void Jogo::printVencedor(){
 
 void Jogo::printRodada(){
     std::cout << "Estamos na Rodada: " << m_rodada << std::endl;
-    for(int i=0; m_numJogadores; i++){
+    for(int i=0; i < m_numJogadores; i++){
         m_jogadores[i]->printStatus();
     };
     std::cout << "Fim da rodada!\n" << std::endl;
